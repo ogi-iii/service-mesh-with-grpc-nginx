@@ -21,6 +21,7 @@ $ docker-compose up --build
 ### Request from Client (Exec by Terminal No.2)
 
 ```bash
+$ chmod +x client/request.sh
 $ client/request.sh
 ```
 
