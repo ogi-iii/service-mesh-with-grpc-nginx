@@ -1,0 +1,20 @@
+version: "3"
+# request:50055 -> nginx:50055 (reverse-proxy) -> api:50051
+services:
+  api:
+    build:
+      context: . # root path definition for Dockerfile
+      dockerfile: "api/Dockerfile"
+    ports:
+      - 50051:50051 # node:container
+  nginx:
+    build:
+      context: . # root path definition for Dockerfile
+      dockerfile: "nginx/Dockerfile"
+    volumes:
+      - "./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro" # node:container:mode
+      - "./nginx/nginx.conf:/etc/nginx/nginx.conf:ro"            # mode is "ro" (read only) or "rw" (read and write)
+    links:
+      - "api" # network links to other container
+    ports:
+      - 50055:50055 # node:container
