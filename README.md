@@ -1,5 +1,7 @@
 # Service Mesh with gRPC & nginx
 
+![Service Mesh with gRPC & nginx architecture diagram](./readme/architecture.png)
+
 ## Requirements
 
 - Docker   20.10.8
